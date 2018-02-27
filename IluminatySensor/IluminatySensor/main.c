@@ -1,4 +1,4 @@
-/*
+/*/*
  * GccApplication4.c
  *
  * Created: 2/17/2018 4:32:36 PM
@@ -8,12 +8,8 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-#define Led0On	PORTC |=(1<<PORTC0) 
-#define Led1On	PORTC |=(1<<PORTC1) 
-#define Led2On	PORTC |=(1<<PORTC2)
-#define  Led0Off PORTC &=~(1<<PORTC0);
-#define  Led1Off PORTC &=~(1<<PORTC1);
-#define  Led2Off PORTC &=~(1<<PORTC2);
+#define powerOn	PORTC |=(1<<PORTC3);
+#define powerOff PORTC &=~(1<<PORTC3);
 
 //PC5 for temp input 
 //PC2 PC1 PC0 lights
@@ -21,7 +17,7 @@
 void adc_init(void)
 {
     ADMUX = (1<<REFS0);     //select AVCC as reference
-    ADCSRA = (1<<ADEN) | 7;  
+    ADCSRA = (1<<ADEN) | 8;  
 }
 
 int readAdc()
@@ -41,26 +37,11 @@ int main(void)
 	adc_init();
 	
     while (1) 
-	{
-		int adcReading = readAdc();
-    
-	if (adcReading <20)
-		{
-		Led0On;
-		Led1Off;
-		Led2Off;
+    {
+		powerOn;
+		int iliuminaty = readAdc();
+		int i=0;
 		}
-	if (adcReading >40)
-				{
-				Led0Off;
-				Led1Off;
-				Led2On;
-				} 
-	if (adcReading<40&&adcReading>20){
-				Led0Off;
-				Led1On;
-				Led2Off;
-				}
-			}	
 }
+
 
