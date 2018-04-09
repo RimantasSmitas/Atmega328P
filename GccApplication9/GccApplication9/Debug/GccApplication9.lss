@@ -1,0 +1,264 @@
+
+GccApplication9.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000002  00800100  00000184  00000218  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000184  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000001  00800102  00800102  0000021a  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000021a  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000024c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000038  00000000  00000000  0000028c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000070b  00000000  00000000  000002c4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000667  00000000  00000000  000009cf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000285  00000000  00000000  00001036  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  0000009c  00000000  00000000  000012bc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000003db  00000000  00000000  00001358  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000000cb  00000000  00000000  00001733  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000028  00000000  00000000  000017fe  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 8c 00 	jmp	0x118	; 0x118 <__vector_13>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e4 e8       	ldi	r30, 0x84	; 132
+  7c:	f1 e0       	ldi	r31, 0x01	; 1
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a2 30       	cpi	r26, 0x02	; 2
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	21 e0       	ldi	r18, 0x01	; 1
+  8c:	a2 e0       	ldi	r26, 0x02	; 2
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	a3 30       	cpi	r26, 0x03	; 3
+  96:	b2 07       	cpc	r27, r18
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 bb 00 	call	0x176	; 0x176 <main>
+  9e:	0c 94 c0 00 	jmp	0x180	; 0x180 <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <_Z11timer1_initv>:
+
+// initialize timer, interrupt and variable
+void timer1_init()
+{
+	// set up timer with prescaler = 8
+	TCCR1B |= (1 << CS11);
+  a6:	e1 e8       	ldi	r30, 0x81	; 129
+  a8:	f0 e0       	ldi	r31, 0x00	; 0
+  aa:	80 81       	ld	r24, Z
+  ac:	82 60       	ori	r24, 0x02	; 2
+  ae:	80 83       	st	Z, r24
+	
+	// initialize counter
+	TCNT1 = 0;
+  b0:	10 92 85 00 	sts	0x0085, r1	; 0x800085 <__TEXT_REGION_LENGTH__+0x7e0085>
+  b4:	10 92 84 00 	sts	0x0084, r1	; 0x800084 <__TEXT_REGION_LENGTH__+0x7e0084>
+	
+	// enable overflow interrupt
+	TIMSK0 |= (1 << TOIE1);
+  b8:	ee e6       	ldi	r30, 0x6E	; 110
+  ba:	f0 e0       	ldi	r31, 0x00	; 0
+  bc:	80 81       	ld	r24, Z
+  be:	81 60       	ori	r24, 0x01	; 1
+  c0:	80 83       	st	Z, r24
+	
+	// enable global interrupts
+	sei();
+  c2:	78 94       	sei
+	
+	// initialize overflow counter variable
+	tot_overflow = 0;
+  c4:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <__data_end>
+  c8:	08 95       	ret
+
+000000ca <_Z5Clockv>:
+}
+
+int Clock(){
+	if (clocker%2==0){
+  ca:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+  ce:	80 fd       	sbrc	r24, 0
+  d0:	02 c0       	rjmp	.+4      	; 0xd6 <_Z5Clockv+0xc>
+	clkUp;}
+  d2:	40 9a       	sbi	0x08, 0	; 8
+  d4:	01 c0       	rjmp	.+2      	; 0xd8 <_Z5Clockv+0xe>
+	else{clkDown;}
+  d6:	40 98       	cbi	0x08, 0	; 8
+	if(clocker == 39){
+  d8:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+  dc:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <__data_start+0x1>
+  e0:	87 97       	sbiw	r24, 0x27	; 39
+  e2:	09 f4       	brne	.+2      	; 0xe6 <_Z5Clockv+0x1c>
+	csUp;}
+  e4:	41 9a       	sbi	0x08, 1	; 8
+	if(clocker == 40){
+  e6:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+  ea:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <__data_start+0x1>
+  ee:	88 97       	sbiw	r24, 0x28	; 40
+  f0:	39 f4       	brne	.+14     	; 0x100 <_Z5Clockv+0x36>
+		csDown;
+  f2:	41 98       	cbi	0x08, 1	; 8
+		clocker = 1;
+  f4:	81 e0       	ldi	r24, 0x01	; 1
+  f6:	90 e0       	ldi	r25, 0x00	; 0
+  f8:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__data_start+0x1>
+  fc:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__data_start>
+	}
+	clocker = clocker + 1;
+ 100:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_start>
+ 104:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <__data_start+0x1>
+ 108:	01 96       	adiw	r24, 0x01	; 1
+ 10a:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__data_start+0x1>
+ 10e:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__data_start>
+	return 0;
+}
+ 112:	80 e0       	ldi	r24, 0x00	; 0
+ 114:	90 e0       	ldi	r25, 0x00	; 0
+ 116:	08 95       	ret
+
+00000118 <__vector_13>:
+
+// TIMER1 overflow interrupt service routine
+// called whenever TCNT1 overflows
+ISR(TIMER1_OVF_vect)
+{
+ 118:	1f 92       	push	r1
+ 11a:	0f 92       	push	r0
+ 11c:	0f b6       	in	r0, 0x3f	; 63
+ 11e:	0f 92       	push	r0
+ 120:	11 24       	eor	r1, r1
+ 122:	2f 93       	push	r18
+ 124:	3f 93       	push	r19
+ 126:	4f 93       	push	r20
+ 128:	5f 93       	push	r21
+ 12a:	6f 93       	push	r22
+ 12c:	7f 93       	push	r23
+ 12e:	8f 93       	push	r24
+ 130:	9f 93       	push	r25
+ 132:	af 93       	push	r26
+ 134:	bf 93       	push	r27
+ 136:	ef 93       	push	r30
+ 138:	ff 93       	push	r31
+	// keep a track of number of overflows
+	tot_overflow++;
+ 13a:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <__data_end>
+ 13e:	8f 5f       	subi	r24, 0xFF	; 255
+ 140:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <__data_end>
+	
+	// check for number of overflows here itself
+	// 61 overflows = 2 seconds delay (approx.)
+	if (tot_overflow >= 3) // NOTE: '>=' used instead of '=='
+ 144:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <__data_end>
+ 148:	83 30       	cpi	r24, 0x03	; 3
+ 14a:	20 f0       	brcs	.+8      	; 0x154 <__vector_13+0x3c>
+	{
+		Clock();
+ 14c:	0e 94 65 00 	call	0xca	; 0xca <_Z5Clockv>
+		// no timer reset required here as the timer
+		// is reset every time it overflows
+		
+		tot_overflow = 0;   // reset overflow counter
+ 150:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <__data_end>
+	}
+}
+ 154:	ff 91       	pop	r31
+ 156:	ef 91       	pop	r30
+ 158:	bf 91       	pop	r27
+ 15a:	af 91       	pop	r26
+ 15c:	9f 91       	pop	r25
+ 15e:	8f 91       	pop	r24
+ 160:	7f 91       	pop	r23
+ 162:	6f 91       	pop	r22
+ 164:	5f 91       	pop	r21
+ 166:	4f 91       	pop	r20
+ 168:	3f 91       	pop	r19
+ 16a:	2f 91       	pop	r18
+ 16c:	0f 90       	pop	r0
+ 16e:	0f be       	out	0x3f, r0	; 63
+ 170:	0f 90       	pop	r0
+ 172:	1f 90       	pop	r1
+ 174:	18 95       	reti
+
+00000176 <main>:
+
+
+int main(void)
+{
+	// connect led to pin PC0
+	DDRC = 0xFF;
+ 176:	8f ef       	ldi	r24, 0xFF	; 255
+ 178:	87 b9       	out	0x07, r24	; 7
+	// initialize timer
+	timer1_init();
+ 17a:	0e 94 53 00 	call	0xa6	; 0xa6 <_Z11timer1_initv>
+ 17e:	ff cf       	rjmp	.-2      	; 0x17e <main+0x8>
+
+00000180 <_exit>:
+ 180:	f8 94       	cli
+
+00000182 <__stop_program>:
+ 182:	ff cf       	rjmp	.-2      	; 0x182 <__stop_program>

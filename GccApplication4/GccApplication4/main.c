@@ -8,15 +8,11 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-#define Led0On	PORTC |=(1<<PORTC0) 
-#define Led1On	PORTC |=(1<<PORTC1) 
-#define Led2On	PORTC |=(1<<PORTC2)
+#define Led0On	PORTC |=(1<<PORTC0);
 #define  Led0Off PORTC &=~(1<<PORTC0);
-#define  Led1Off PORTC &=~(1<<PORTC1);
-#define  Led2Off PORTC &=~(1<<PORTC2);
 
 //PC5 for temp input 
-//PC2 PC1 PC0 lights
+//PC0 lights
 
 void adc_init(void)
 {
@@ -37,30 +33,23 @@ int main(void)
 {	
 	PORTD = 0x00; // Initialize the I/O ports
 	DDRD = 0xFF; // All Output
-	DDRC = 0xDF; // PIN5 as Input (based on 0-7)
-	adc_init();
 	
+	//DDRC = 0xDF; // PIN5 as Input (based on 0-7)
+	DDRC &= ~(1<<5);
+	adc_init();
+	int adcReading = 0;
     while (1) 
 	{
-		int adcReading = readAdc();
+	adcReading = readAdc();
     
-	if (adcReading <20)
+	if (adcReading >400)
 		{
 		Led0On;
-		Led1Off;
-		Led2Off;
+		}	
+	else
+	{
+		Led0Off;
+	}
 		}
-	if (adcReading >40)
-				{
-				Led0Off;
-				Led1Off;
-				Led2On;
-				} 
-	if (adcReading<40&&adcReading>20){
-				Led0Off;
-				Led1On;
-				Led2Off;
-				}
-			}	
-}
+	}
 
