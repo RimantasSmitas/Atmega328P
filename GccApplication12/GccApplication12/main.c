@@ -27,12 +27,14 @@ sleep10MS(4);
 clkDown;
 }
 
-
-int readStuff()
-{
-
-data = (data << 1) | PCINT23;
-return (data);
+int readStuff2(){
+	int bit; 
+	data <<= 1 ;
+	if(!(PIND & (1<<PORTD7))){
+		bit = 0;
+	}
+	else{ bit = 1;}
+	data |= (bit);
 }
 
 int main(void)
@@ -43,7 +45,7 @@ DDRD = 0X00;
 
 // initialize timer
 initTimer();
-
+int finalData = 0;
 // loop forever
 while(1)
 {
@@ -65,21 +67,20 @@ data = 0;
 slowDown;
 int i = 0;
 clocker();
+sleep10MS(4);
 clocker();
-uint16_t a = readStuff();
+sleep10MS(4);
 clocker();
-for ( i=0; i<9; i++)
-
-{
-uint16_t a = readStuff();
+sleep10MS(4);
+for ( i=0; i<9; i++){
 clocker();
-readStuff();
+readStuff2();
+sleep10MS(4);
 }
-uint16_t finaldata = readStuff();
+finalData = data;
 slowUp;
 sleep10MS(4);
 }
-
 }
 
 
