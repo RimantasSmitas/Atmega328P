@@ -45,6 +45,7 @@
 #include "compiler.h"
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <util/delay.h>
 #define TIMEOUT 250
 
 // Set the correct BAUD and F_CPU defines before including setbaud.h
@@ -57,7 +58,7 @@ void init(void)
 	ADMUX = (1<<REFS0);     //select AVCC as reference
 	ADCSRA = (1<<ADEN) | 7;
 	
-	TCCR1B |= (1 << CS12)| (0 << CS11) | (1 << CS10); //timer 
+//	TCCR1B |= (1 << CS12)| (0 << CS11) | (1 << CS10); //timer 
 													// enabling the prescale to 1024	
 }
 
@@ -71,12 +72,12 @@ int readAdc()
 
 
 void Wait10ms(int y)
-{	int x;
+{	/*int x;
 	for(x = 1; x <= y; x++){
 		TCNT1 = 0; //set the timer to value 0
 		while (TCNT1 <= 1562); // while loop that counts to 1562 which is equal to 1s
 	}
-	return;
+	return;*/
 }
 
 
@@ -206,6 +207,27 @@ char checkmctxok(void)
 	return 1;	
 	
 }
+
+char checkaccecepted(void)
+{
+	char ch=0;
+	char message[100];
+	char index=0;
+
+	while(uart_getchar()!='a');
+	while(uart_getchar()!='c');
+	while(uart_getchar()!='c');
+	while(uart_getchar()!='e');
+	while(uart_getchar()!='p');
+	while(uart_getchar()!='t');
+	while(uart_getchar()!='e');
+	while(uart_getchar()!='d');
+	while(uart_getchar()!='\r');
+	while(uart_getchar()!='\n');
+	
+	return 1;
+	
+}
 // this function takes a string and puts out chars until no more characters are available
 void sendString(char *s){
    char *ptr = s;
@@ -224,10 +246,11 @@ void sendString(char *s){
 int main(void)
 {
 	// Set up baud rate registers
+		init();
 		Wait10ms(10);
 	    uart_init();
-		init();
-		Wait10ms(50);
+		
+		//Wait10ms(50);
 		sendString("mac get status\r\n");
 		sendString("mac get sync\r\n");
 
@@ -241,15 +264,16 @@ int main(void)
 		sendString("mac join otaa\r\n");
 		
 		while(!checkOk());
+		while(!checkaccecepted());
 		
- 	//	sendString("sys sleep 500\r\n");
+		//sendString("sys sleep 500\r\n");
 		
 	//	while(!checkOk());
 	//	sendString("mac resume\r\n");
 		
 
 		DDRC &= ~(1<<5);
-		adc_init();
+		
 		int adcReading = 0;
 		while (1)
 		{
@@ -258,14 +282,11 @@ int main(void)
 			char message = ("radio tx %d\r\n",c); 	
 			char message2 = ("mac tx uncnf 1 %d\r\n",c);
 			
-			sendString("mac pause");
-			//sendString("\r\n");
-			sendString("mac get status\r\n");
+			//sendString("mac get status\r\n");
 			sendString("mac tx uncnf 1 100\r\n");			
-			while(!checkmctxok());
-			sendString(message2);
 			
-			sendString("mac resume\r\n");
+			//while(!checkmctxok());
+			sendString(message2);
 			
 			
 		}
