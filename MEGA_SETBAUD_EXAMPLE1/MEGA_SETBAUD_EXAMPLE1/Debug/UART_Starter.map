@@ -1,14 +1,14 @@
 Archive member included to satisfy reference by file (symbol)
 
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                              C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328p/avr5/crtatmega328p.o (exit)
+                              C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328/avr5/crtatmega328.o (exit)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
                               src/ProjectLora.o (__do_copy_data)
 
 Discarded input sections
 
- .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328p/avr5/crtatmega328p.o
+ .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328/avr5/crtatmega328.o
+ .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328/avr5/crtatmega328.o
  .group         0x00000000        0x8 src/ASF/mega/boards/stk600/rcx_x/init.o
  .group         0x00000000        0x8 src/ASF/mega/boards/stk600/rcx_x/init.o
  .group         0x00000000        0x8 src/ASF/mega/boards/stk600/rcx_x/init.o
@@ -44,7 +44,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x20 src/ASF/mega/boards/stk600/rcx_x/init.o
  .debug_ranges  0x00000000       0x10 src/ASF/mega/boards/stk600/rcx_x/init.o
- .debug_macro   0x00000000      0x134 src/ASF/mega/boards/stk600/rcx_x/init.o
+ .debug_macro   0x00000000      0x138 src/ASF/mega/boards/stk600/rcx_x/init.o
  .debug_macro   0x00000000      0xa4e src/ASF/mega/boards/stk600/rcx_x/init.o
  .debug_macro   0x00000000       0x10 src/ASF/mega/boards/stk600/rcx_x/init.o
  .debug_macro   0x00000000      0x1c9 src/ASF/mega/boards/stk600/rcx_x/init.o
@@ -70,10 +70,12 @@ Discarded input sections
  .debug_macro   0x00000000       0x40 src/ASF/mega/boards/stk600/rcx_x/init.o
  .debug_macro   0x00000000      0x100 src/ASF/mega/boards/stk600/rcx_x/init.o
  .debug_macro   0x00000000      0x2c0 src/ASF/mega/boards/stk600/rcx_x/init.o
- .debug_line    0x00000000      0x360 src/ASF/mega/boards/stk600/rcx_x/init.o
- .debug_str     0x00000000     0xf41c src/ASF/mega/boards/stk600/rcx_x/init.o
+ .debug_line    0x00000000      0x36c src/ASF/mega/boards/stk600/rcx_x/init.o
+ .debug_str     0x00000000     0xf419 src/ASF/mega/boards/stk600/rcx_x/init.o
  .comment       0x00000000       0x31 src/ASF/mega/boards/stk600/rcx_x/init.o
  .debug_frame   0x00000000       0x24 src/ASF/mega/boards/stk600/rcx_x/init.o
+ .group         0x00000000        0x8 src/ProjectLora.o
+ .group         0x00000000        0x8 src/ProjectLora.o
  .group         0x00000000        0x8 src/ProjectLora.o
  .group         0x00000000        0x8 src/ProjectLora.o
  .group         0x00000000        0x8 src/ProjectLora.o
@@ -179,7 +181,7 @@ user_signatures  0x00850000         0x00000400         rw !x
 Linker script and memory map
 
 Address of section .data set to 0x800100
-LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328p/avr5/crtatmega328p.o
+LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328/avr5/crtatmega328.o
 LOAD src/ASF/mega/boards/stk600/rcx_x/init.o
 LOAD src/ProjectLora.o
 START GROUP
@@ -189,7 +191,7 @@ START GROUP
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a
-LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328p/avr5\libatmega328p.a
+LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328/avr5\libatmega328.a
 END GROUP
                 0x00020000                __TEXT_REGION_LENGTH__ = DEFINED (__TEXT_REGION_LENGTH__)?__TEXT_REGION_LENGTH__:0x20000
                 0x0000ffa0                __DATA_REGION_LENGTH__ = DEFINED (__DATA_REGION_LENGTH__)?__DATA_REGION_LENGTH__:0xffa0
@@ -291,7 +293,7 @@ END GROUP
 
 .text           0x00000000      0x1ce
  *(.vectors)
- .vectors       0x00000000       0x68 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328p/avr5/crtatmega328p.o
+ .vectors       0x00000000       0x68 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328/avr5/crtatmega328.o
                 0x00000000                __vector_default
                 0x00000000                __vectors
  *(.vectors)
@@ -319,13 +321,13 @@ END GROUP
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x00000068        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328p/avr5/crtatmega328p.o
+ .init0         0x00000068        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328/avr5/crtatmega328.o
                 0x00000068                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x00000068        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328p/avr5/crtatmega328p.o
+ .init2         0x00000068        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328/avr5/crtatmega328.o
  *(.init2)
  *(.init3)
  *(.init3)
@@ -342,10 +344,10 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x0000008a        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328p/avr5/crtatmega328p.o
+ .init9         0x0000008a        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328/avr5/crtatmega328.o
  *(.init9)
  *(.text)
- .text          0x0000008e        0x2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328p/avr5/crtatmega328p.o
+ .text          0x0000008e        0x2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328/avr5/crtatmega328.o
                 0x0000008e                __vector_22
                 0x0000008e                __vector_1
                 0x0000008e                __vector_24
@@ -491,9 +493,9 @@ END GROUP
                                  0x31 (size before relaxing)
 
 .note.gnu.avr.deviceinfo
-                0x00000000       0x40
+                0x00000000       0x3c
  .note.gnu.avr.deviceinfo
-                0x00000000       0x40 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328p/avr5/crtatmega328p.o
+                0x00000000       0x3c C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328/avr5/crtatmega328.o
 
 .note.gnu.build-id
  *(.note.gnu.build-id)
@@ -520,28 +522,28 @@ END GROUP
 
 .debug_info     0x00000000      0xa67
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x5f4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328p/avr5/crtatmega328p.o
+ .debug_info    0x00000000      0x5f4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328/avr5/crtatmega328.o
  .debug_info    0x000005f4      0x473 src/ProjectLora.o
 
 .debug_abbrev   0x00000000      0x7bb
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x5a2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328p/avr5/crtatmega328p.o
+ .debug_abbrev  0x00000000      0x5a2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328/avr5/crtatmega328.o
  .debug_abbrev  0x000005a2      0x219 src/ProjectLora.o
 
-.debug_line     0x00000000      0x77e
+.debug_line     0x00000000      0x7b0
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0x133 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_line    0x00000133      0x64b src/ProjectLora.o
+ .debug_line    0x00000000      0x133 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328/avr5/crtatmega328.o
+ .debug_line    0x00000133      0x67d src/ProjectLora.o
 
 .debug_frame    0x00000000       0xb0
  *(.debug_frame)
  .debug_frame   0x00000000       0xb0 src/ProjectLora.o
 
-.debug_str      0x00000000     0xee2c
+.debug_str      0x00000000     0xf1ea
  *(.debug_str)
- .debug_str     0x00000000      0x208 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_str     0x00000208     0xec24 src/ProjectLora.o
-                               0xede4 (size before relaxing)
+ .debug_str     0x00000000      0x208 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328/avr5/crtatmega328.o
+ .debug_str     0x00000208     0xefe2 src/ProjectLora.o
+                               0xf1a2 (size before relaxing)
 
 .debug_loc      0x00000000      0x11f
  *(.debug_loc)
@@ -569,12 +571,14 @@ END GROUP
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x68 src/ProjectLora.o
 
-.debug_macro    0x00000000      0x1f3
+.debug_macro    0x00000000      0x389
  *(.debug_macro)
- .debug_macro   0x00000000      0x142 src/ProjectLora.o
- .debug_macro   0x00000142       0x44 src/ProjectLora.o
- .debug_macro   0x00000186       0x10 src/ProjectLora.o
- .debug_macro   0x00000196       0x28 src/ProjectLora.o
- .debug_macro   0x000001be       0x35 src/ProjectLora.o
+ .debug_macro   0x00000000      0x168 src/ProjectLora.o
+ .debug_macro   0x00000168       0x44 src/ProjectLora.o
+ .debug_macro   0x000001ac       0x10 src/ProjectLora.o
+ .debug_macro   0x000001bc      0x160 src/ProjectLora.o
+ .debug_macro   0x0000031c       0x10 src/ProjectLora.o
+ .debug_macro   0x0000032c       0x28 src/ProjectLora.o
+ .debug_macro   0x00000354       0x35 src/ProjectLora.o
 OUTPUT(UART_Starter.elf elf32-avr)
 LOAD linker stubs
