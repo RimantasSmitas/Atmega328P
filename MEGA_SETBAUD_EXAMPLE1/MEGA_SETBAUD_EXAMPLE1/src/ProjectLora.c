@@ -45,7 +45,8 @@
 #include "compiler.h"
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include <util/delay.h>
+#include <stdint.h>
+#include <stdlib.h>
 #define TIMEOUT 250
 
 // Set the correct BAUD and F_CPU defines before including setbaud.h
@@ -55,29 +56,29 @@
 
 void init(void)
 {							//ADC Init
-	ADMUX = (1<<REFS0);     //select AVCC as reference
-	ADCSRA = (1<<ADEN) | 7;
+	//ADMUX = (1<<REFS0);     //select AVCC as reference
+	//ADCSRA = (1<<ADEN) | 7;
 	
-//	TCCR1B |= (1 << CS12)| (0 << CS11) | (1 << CS10); //timer 
+	TCCR1B |= (1 << CS12)| (0 << CS11) | (1 << CS10); //timer 
 													// enabling the prescale to 1024	
 }
 
 int readAdc()
 {
-	ADMUX = (1<<REFS0) | (101 & 0x0f);  //select input and ref
-	ADCSRA |= (1<<ADSC);                 //start the conversion
-	while (ADCSRA & (1<<ADSC));          //wait for end of conversion
-	return ADCW;
+//	ADMUX = (1<<REFS0) | (101 & 0x0f);  //select input and ref
+//	ADCSRA |= (1<<ADSC);                 //start the conversion
+//	while (ADCSRA & (1<<ADSC));          //wait for end of conversion
+//	return ADCW;
 }
 
 
 void Wait10ms(int y)
-{	/*int x;
+{	int x;
 	for(x = 1; x <= y; x++){
 		TCNT1 = 0; //set the timer to value 0
 		while (TCNT1 <= 1562); // while loop that counts to 1562 which is equal to 1s
 	}
-	return;*/
+	return;
 }
 
 
@@ -264,7 +265,7 @@ int main(void)
 		sendString("mac join otaa\r\n");
 		
 		while(!checkOk());
-		while(!checkaccecepted());
+	//	while(!checkaccecepted());
 		
 		//sendString("sys sleep 500\r\n");
 		
@@ -278,15 +279,17 @@ int main(void)
 		while (1)
 		{
 			adcReading = readAdc();
-			char c = (char)adcReading;
-			char message = ("radio tx %d\r\n",c); 	
-			char message2 = ("mac tx uncnf 1 %d\r\n",c);
+//			char c = (char)adcReading;
+			unsigned char buffer[32];
+			itoa (adcReading,buffer,16);
+			char start[32] = "mac tx uncnf 1 /0";
+			char *strcat(char *start,char *buffer);
 			
-			//sendString("mac get status\r\n");
-			sendString("mac tx uncnf 1 100\r\n");			
+			sendString(start);			
+			sendString("\r\n");			
 			
-			//while(!checkmctxok());
-			sendString(message2);
+			while(!checkmctxok());
+			//sendString(message2);
 			
 			
 		}

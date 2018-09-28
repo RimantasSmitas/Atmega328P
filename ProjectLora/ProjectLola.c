@@ -62,21 +62,21 @@ void init(void)
 }
 
 int readAdc()
-{
+{/*
 	ADMUX = (1<<REFS0) | (101 & 0x0f);  //select input and ref
 	ADCSRA |= (1<<ADSC);                 //start the conversion
 	while (ADCSRA & (1<<ADSC));          //wait for end of conversion
-	return ADCW;
+	return ADCW;*/
 }
 
 
 void Wait10ms(int y)
-{	int x;
+{/*	int x;
 	for(x = 1; x <= y; x++){
 		TCNT1 = 0; //set the timer to value 0
 		while (TCNT1 <= 1562); // while loop that counts to 1562 which is equal to 1s
 	}
-	return;
+	return*/;
 }
 
 
@@ -255,10 +255,9 @@ int main(void)
 		{
 			adcReading = readAdc();
 			char c = (char)adcReading;
-			char message = ("radio tx %d\r\n",c); 	
 			char message2 = ("mac tx uncnf 1 %d\r\n",c);
 			
-			sendString("mac pause");
+			//sendString("mac pause");
 			//sendString("\r\n");
 			sendString("mac get status\r\n");
 			sendString("mac tx uncnf 1 100\r\n");			
